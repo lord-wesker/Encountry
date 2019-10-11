@@ -2,10 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Encountry.Prism.Views.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Encounty!" />
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Source="back_alt" Aspect="Fill" HeightRequest="300" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="0, 13" />
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="21, 13">
+                <ImageButton Source="logo_alt" WidthRequest="34" HeightRequest="34" HorizontalOptions="Start" VerticalOptions="Center" />
+                <Label Text="ENCOUNTRY" FontSize="13" VerticalOptions="Center" TextColor="#211D1C" FontAttributes="Bold" />
+            </StackLayout>
+            
+        </Grid>
     </StackLayout>
 
 </ContentPage>
