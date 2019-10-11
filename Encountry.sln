@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encountry.Common", "Encountry.Common\Encountry.Common.csproj", "{51C05E0B-B251-4DB0-9480-988D79085E23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encountry.Common", "Encountry.Common\Encountry.Common.csproj", "{51C05E0B-B251-4DB0-9480-988D79085E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encountry.Prism", "Encountry.Prism\Encountry.Prism\Encountry.Prism.csproj", "{FC2A7B4A-E196-45E4-AFD1-3FFA981268CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encountry.Prism", "Encountry.Prism\Encountry.Prism\Encountry.Prism.csproj", "{FC2A7B4A-E196-45E4-AFD1-3FFA981268CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encountry.Prism.Android", "Encountry.Prism\Encountry.Prism.Android\Encountry.Prism.Android.csproj", "{E0F2473B-1E2E-4C4C-8C17-FD56A389409D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encountry.Prism.iOS", "Encountry.Prism\Encountry.Prism.iOS\Encountry.Prism.iOS.csproj", "{061EC1B3-B9A8-48CC-804D-A049572DF1B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,26 +109,6 @@ Global
 		{E0F2473B-1E2E-4C4C-8C17-FD56A389409D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E0F2473B-1E2E-4C4C-8C17-FD56A389409D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{E0F2473B-1E2E-4C4C-8C17-FD56A389409D}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Debug|Any CPU.ActiveCfg = Debug|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Debug|iPhone.Build.0 = Debug|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Release|Any CPU.ActiveCfg = Release|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Release|iPhone.ActiveCfg = Release|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Release|iPhone.Build.0 = Release|iPhone
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{061EC1B3-B9A8-48CC-804D-A049572DF1B9}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -37,7 +37,7 @@ namespace Encountry.Common.Models
         public long Area { get; set; }
 
 
-        public de Gini { get; set; }
+        public decimal Gini { get; set; }
 
 
         public ICollection<string> Timezones { get; set; }
