@@ -1,22 +1,26 @@
 ﻿using Encountry.Common.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Encountry.Prism.ViewModels
 {
-    public class MapPageViewModel : ViewModelBase
+    public class CountryPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private CountryResponse _country;
 
-        public MapPageViewModel(INavigationService navigationService) : base(navigationService)
+        public CountryPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
-            Title = "MAP";
+
+            Title = "COUNTRY";
         }
 
-        public CountryResponse Country
-        {
+        public CountryResponse Country {
             get => _country;
             set => SetProperty(ref _country, value);
         }
@@ -25,7 +29,7 @@ namespace Encountry.Prism.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            if (parameters.ContainsKey("country"))
+            if(parameters.ContainsKey("country"))
             {
                 Country = parameters.GetValue<CountryResponse>("country");
                 Title = Country.Name;

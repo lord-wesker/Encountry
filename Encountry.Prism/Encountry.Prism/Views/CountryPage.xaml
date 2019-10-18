@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Encountry.Prism.Views.CountryPage"
+             Title="{Binding Title}">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ffimageloadingsvg:SvgCachedImage Grid.Row="0" Source="{Binding Country.Flag}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="300" Aspect="AspectFill" />
+            <Button Grid.Row="1" CornerRadius="20" HeightRequest="40" Margin="80, -30, 80, 0" Text="SEE ON MAP" BackgroundColor="Accent" TextColor="White" Command="{Binding Country.SeeCountryOnMapCommand}" />
+            <Frame Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0">
+                        <Label Text="{Binding Country.Capital}" HorizontalTextAlignment="Center"/>
+                        <Label Text="Capital" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="{Binding Country.Population}" HorizontalTextAlignment="Center" />
+                        <Label Text="Population" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2">
+                        <Label Text="{Binding Country.Area}" HorizontalTextAlignment="Center" />
+                        <Label Text="Area" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

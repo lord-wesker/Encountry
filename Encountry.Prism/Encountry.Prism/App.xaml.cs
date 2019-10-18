@@ -33,6 +33,7 @@ namespace Encountry.Prism
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
         }
     }
 }

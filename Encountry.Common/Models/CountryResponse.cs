@@ -28,7 +28,7 @@ namespace Encountry.Common.Models
         public string Population { get; set; }
 
 
-        public ICollection<string> Latlng { get; set; }
+        public IList<double> Latlng { get; set; }
 
 
         public string Demonym { get; set; }

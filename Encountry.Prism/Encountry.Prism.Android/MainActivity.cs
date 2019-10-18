@@ -22,6 +22,8 @@ namespace Encountry.Prism.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+
 
             LoadApplication(new App(new AndroidInitializer()));
         }

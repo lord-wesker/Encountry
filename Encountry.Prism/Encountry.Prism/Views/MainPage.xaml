@@ -2,28 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Encountry.Prism.Views.MainPage"
-             NavigationPage.HasNavigationBar="False"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              BackgroundColor="White"
              Title="{Binding Title}">
 
     <StackLayout
-        BackgroundColor="WhiteSmoke"
-        Padding="0, 21">
-        <Label HorizontalOptions="CenterAndExpand" Text="ENCOUNTRY" FontAttributes="Bold" />
+        BackgroundColor="White">
         <ListView
             HasUnevenRows="True"
+            SeparatorVisibility="None"
             ItemsSource="{Binding Countries}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame>
+                        <Frame Padding="0" CornerRadius="10" IsClippedToBounds="True" Margin="13, 5" HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectCountryCommand}" />
+                            </Frame.GestureRecognizers>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Source="{Binding Flag}" HeightRequest="80"/>
-                                <Label Grid.Column="1" Text="{Binding Name}" />
+                                <Frame Grid.Column="0" HasShadow="False" Padding="0" CornerRadius="10" IsClippedToBounds="True">
+                                    <ffimageloadingsvg:SvgCachedImage Source="{Binding Flag}" HeightRequest="80" WidthRequest="120" Aspect="AspectFill"/>
+                                </Frame>
+                                <StackLayout Grid.Column="1" Padding="13">
+                                    <Label Text="{Binding Name}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <Image Grid.Column="2" Source="ic_more_vert" VerticalOptions="CenterAndExpand" />
                             </Grid>
                         </Frame>
                     </ViewCell>

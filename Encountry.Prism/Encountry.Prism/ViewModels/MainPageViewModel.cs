@@ -3,6 +3,7 @@ using Encountry.Common.Services;
 using Newtonsoft.Json;
 using Prism.Navigation;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Encountry.Prism.ViewModels
 {
@@ -10,7 +11,7 @@ namespace Encountry.Prism.ViewModels
     {
         private INavigationService _navigationService;
         private readonly IApiService _apiService;
-        private ObservableCollection<CountryResponse> _countries;
+        private ObservableCollection<CountryItemViewModel> _countries;
 
         public MainPageViewModel(INavigationService navigationService, IApiService apiService)
             : base(navigationService)
@@ -22,7 +23,7 @@ namespace Encountry.Prism.ViewModels
             GetCountriesAsync();
         }
 
-        public ObservableCollection<CountryResponse> Countries {
+        public ObservableCollection<CountryItemViewModel> Countries {
             get => _countries;
             set => SetProperty(ref _countries, value);
         }
@@ -44,11 +45,36 @@ namespace Encountry.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert("Error", "Problem with user data, call support.", "Accept");
+                await App.Current.MainPage.DisplayAlert("Error", "Problem data loading, call support.", "Accept");
                 return;
             }  
 
-            Countries = new ObservableCollection<CountryResponse>(response.Result);
+            Countries = new ObservableCollection<CountryItemViewModel>(response.Result.Select(r => new CountryItemViewModel(_navigationService) {
+                Alpha2Code = r.Alpha2Code,
+                Alpha3Code = r.Alpha3Code,
+                AltSpellings = r.AltSpellings,
+                Area= r.Area,
+                Borders = r.Borders,
+                CallingCodes = r.CallingCodes,
+                Capital = r.Capital,
+                Cioc = r.Cioc,
+                Currencies = r.Currencies,
+                Demonym = r.Demonym,
+                Flag = r.Flag,
+                Gini = r.Gini,
+                Languages = r.Languages,
+                Latlng = r.Latlng,
+                Name = r.Name,
+                NativeName = r.NativeName,
+                NumericCode = r.NumericCode,
+                Population = r.Population,
+                Region = r.Region,
+                RegionalBlocs = r.RegionalBlocs,
+                Subregion = r.Subregion,
+                Timezones = r.Timezones,
+                TopLevelDomain = r.TopLevelDomain,
+                Translations = r.Translations,
+            }).ToList());
         }
     }
 }
