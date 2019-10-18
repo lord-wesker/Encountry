@@ -1,92 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Encountry.Prism.Views.MainPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White"
              Title="{Binding Title}">
 
     <StackLayout
-        BackgroundColor="#3708FD">
-        <maps:Map
-            HeightRequest="400"
-        	x:Name="EncountryMap"
-        	IsShowingUser="true"
-        	MapType="Street"/>
-        <Frame
-            HasShadow="False"
-            Margin="0, -30, 0, 0"
-            Padding="13"
-            CornerRadius="21"
-            HeightRequest="400"
-            BackgroundColor="#3708FD">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Frame Padding="0" CornerRadius="40" IsClippedToBounds="True" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center" Margin="0,-50,0,0">
-                    <Image Source="flag" Aspect="Fill" VerticalOptions="Center" HorizontalOptions="Center"/>
-                </Frame>
-                <Frame Grid.Row="1" CornerRadius="20" Padding="0" IsClippedToBounds="True" BackgroundColor="Transparent">
-                    <ScrollView HeightRequest="220">
-                        <StackLayout>
+        BackgroundColor="WhiteSmoke"
+        Padding="0, 21">
+        <Label HorizontalOptions="CenterAndExpand" Text="ENCOUNTRY" FontAttributes="Bold" />
+        <ListView
+            HasUnevenRows="True"
+            ItemsSource="{Binding Countries}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Frame CornerRadius="20" Grid.Row="0" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="0" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="1" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="1" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="2" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="2" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="3" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="3" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="4" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="4" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="5" Grid.Column="0" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
-                                <Frame CornerRadius="20" Grid.Row="5" Grid.Column="1" HeightRequest="50">
-                                    <Label Text="Aloha" />
-                                </Frame>
+                                <Image Grid.Column="0" Source="{Binding Flag}" HeightRequest="80"/>
+                                <Label Grid.Column="1" Text="{Binding Name}" />
                             </Grid>
-                        </StackLayout>
-                    </ScrollView>
-                </Frame>
-            </Grid>
-        </Frame>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

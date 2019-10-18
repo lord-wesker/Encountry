@@ -2,8 +2,9 @@
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Encountry.Common.Services
@@ -20,33 +21,37 @@ namespace Encountry.Common.Services
             return await CrossConnectivity.Current.IsRemoteReachable(url);
         }
 
-        public async Task<Response<CountryResponse>> GetCountriesAsync(string urlBase, string servicePrefix, string controller)
+        public async Task<Response<ObservableCollection<CountryResponse>>> GetCountriesAsync(string urlBase, string servicePrefix, string controller)
         {
             try
             {
                 //var request = new EmailRequest { Email = email };
                 //var requestString = JsonConvert.SerializeObject(request);
-                var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
+                //var content = new StringContent(string.Empty, Encoding.UTF8, "application/json");
                 var client = new HttpClient
                 {
                     BaseAddress = new Uri(urlBase)
                 };
 
                 var url = $"{servicePrefix}{controller}";
-                var response = await client.PostAsync(url, content);
+                var response = await client.GetAsync(url);
                 var result = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response<CountryResponse>
+                    return new Response<ObservableCollection<CountryResponse>>
                     {
                         IsSuccess = false,
                         Message = result,
                     };
                 }
 
-                var countries = JsonConvert.DeserializeObject<CountryResponse>(result);
-                return new Response<CountryResponse>
+                var countries = JsonConvert.DeserializeObject<ObservableCollection<CountryResponse>>(result);
+
+                //var countries = new ObservableCollection<CountryResponse>();
+                //countries.Add(countriesResp[0]);
+
+                return new Response<ObservableCollection<CountryResponse>>
                 {
                     IsSuccess = true,
                     Result = countries,
@@ -54,7 +59,7 @@ namespace Encountry.Common.Services
             }
             catch (Exception ex)
             {
-                return new Response<CountryResponse>
+                return new Response<ObservableCollection<CountryResponse>>
                 {
                     IsSuccess = false,
                     Message = ex.Message

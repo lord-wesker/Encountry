@@ -14,7 +14,7 @@ namespace Encountry.Common.Models
 
         public string Alpha3Code { get; set; }
 
-        public long[] CallingCodes { get; set; }
+        public ICollection<string> CallingCodes { get; set; }
 
         public string Capital { get; set; }
 
@@ -25,19 +25,19 @@ namespace Encountry.Common.Models
         public string Subregion { get; set; }
 
 
-        public long Population { get; set; }
+        public string Population { get; set; }
 
 
-        public ICollection<decimal> Latlng { get; set; }
+        public ICollection<string> Latlng { get; set; }
 
 
         public string Demonym { get; set; }
 
 
-        public long Area { get; set; }
+        public string Area { get; set; }
 
 
-        public decimal Gini { get; set; }
+        public string Gini { get; set; }
 
 
         public ICollection<string> Timezones { get; set; }
@@ -49,7 +49,7 @@ namespace Encountry.Common.Models
         public string NativeName { get; set; }
 
 
-        public int NumericCode { get; set; }
+        public string NumericCode { get; set; }
 
 
         public ICollection<Currency> Currencies { get; set; }

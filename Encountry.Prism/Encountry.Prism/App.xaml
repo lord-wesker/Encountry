@@ -5,7 +5,8 @@
              x:Class="Encountry.Prism.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <!-- Parameters -->
+        <x:String x:Key="UrlAPI">https://restcountries.eu/</x:String>
 
-	</Application.Resources>
+    </Application.Resources>
 </prism:PrismApplication>

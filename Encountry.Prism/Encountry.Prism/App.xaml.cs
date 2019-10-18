@@ -4,6 +4,7 @@ using Encountry.Prism.ViewModels;
 using Encountry.Prism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Encountry.Common.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Encountry.Prism
@@ -28,8 +29,10 @@ namespace Encountry.Prism
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
         }
     }
 }
