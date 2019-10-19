@@ -5807,7 +5807,7 @@ namespace Encountry.Prism.Droid
 			public const int design_snackbar_background = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int flag = 2130837617;
+			public const int encountry_splash = 2130837617;
 			
 			// aapt resource value: 0x7f020072
 			public const int googleg_disabled_color_18 = 2130837618;
@@ -9088,6 +9088,9 @@ namespace Encountry.Prism.Droid
 			
 			// aapt resource value: 0x7f0b0007
 			public const int Theme_MediaRouter_LightControlPanel = 2131427335;
+			
+			// aapt resource value: 0x7f0b0203
+			public const int Theme_Splash = 2131427843;
 			
 			// aapt resource value: 0x7f0b0113
 			public const int ThemeOverlay_AppCompat = 2131427603;

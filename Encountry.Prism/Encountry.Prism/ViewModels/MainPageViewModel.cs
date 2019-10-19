@@ -12,6 +12,7 @@ namespace Encountry.Prism.ViewModels
         private INavigationService _navigationService;
         private readonly IApiService _apiService;
         private ObservableCollection<CountryItemViewModel> _countries;
+        private bool _loading;
 
         public MainPageViewModel(INavigationService navigationService, IApiService apiService)
             : base(navigationService)
@@ -19,8 +20,6 @@ namespace Encountry.Prism.ViewModels
             Title = "Encountry";
             _navigationService = navigationService;
             _apiService = apiService;
-
-            GetCountriesAsync();
         }
 
         public ObservableCollection<CountryItemViewModel> Countries {
@@ -28,15 +27,29 @@ namespace Encountry.Prism.ViewModels
             set => SetProperty(ref _countries, value);
         }
 
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value);
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            GetCountriesAsync();
+        }
+
         private async void GetCountriesAsync()
         {
+            Loading = true;
+
             var url = App.Current.Resources["UrlAPI"].ToString();
 
             var connection = await _apiService.CheckConnectionAsync(url);
             if (!connection)
             {
-                //IsEnabled = true;
-                //IsRunning = false;
+                Loading = false;
                 await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
                 return;
             }
@@ -45,6 +58,7 @@ namespace Encountry.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
+                Loading = false;
                 await App.Current.MainPage.DisplayAlert("Error", "Problem data loading, call support.", "Accept");
                 return;
             }  
@@ -75,6 +89,8 @@ namespace Encountry.Prism.ViewModels
                 TopLevelDomain = r.TopLevelDomain,
                 Translations = r.Translations,
             }).ToList());
+
+            Loading = false;
         }
     }
 }

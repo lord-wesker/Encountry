@@ -8,7 +8,11 @@
 
     <StackLayout
         BackgroundColor="White">
+        <StackLayout Padding="20">
+            <ActivityIndicator IsRunning="{Binding Loading}" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
         <ListView
+            Margin="0, -80, 0, 0"
             HasUnevenRows="True"
             SeparatorVisibility="None"
             ItemsSource="{Binding Countries}">
