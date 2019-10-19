@@ -6,37 +6,218 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Encountry.Prism.Views.CountryPage"
              Title="{Binding Title}">
-    <StackLayout>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <ffimageloadingsvg:SvgCachedImage Grid.Row="0" Source="{Binding Country.Flag}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="300" Aspect="AspectFill" />
-            <Button Grid.Row="1" CornerRadius="20" HeightRequest="40" Margin="80, -30, 80, 0" Text="SEE ON MAP" BackgroundColor="Accent" TextColor="White" Command="{Binding Country.SeeCountryOnMapCommand}" />
-            <Frame Grid.Row="2">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0">
-                        <Label Text="{Binding Country.Capital}" HorizontalTextAlignment="Center"/>
-                        <Label Text="Capital" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ffimageloadingsvg:SvgCachedImage Grid.Row="0" Source="{Binding Country.Flag}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" HeightRequest="300" Aspect="AspectFill" />
+                <Button Grid.Row="1" CornerRadius="20" HeightRequest="40" Margin="80, -30, 80, 0" Text="SEE ON MAP" BackgroundColor="Accent" TextColor="White" Command="{Binding Country.SeeCountryOnMapCommand}" />
+                <Frame Grid.Row="2" HasShadow="False">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Label Text="{Binding Country.Capital}" HorizontalTextAlignment="Center"/>
+                            <Label Text="Capital" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Country.Population}" HorizontalTextAlignment="Center" />
+                            <Label Text="Population" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="2">
+                            <Label Text="{Binding Country.Area}" HorizontalTextAlignment="Center" />
+                            <Label Text="Area" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Text="Alpha 2 Code:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Country.Alpha2Code}" />
+
+                        <Label Grid.Column="0" Grid.Row="1" Text="Alpha 3 Code:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Country.Alpha3Code}" />
+
+                        <Label Grid.Column="0" Grid.Row="2" Text="Region:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="2" Text="{Binding Country.Region}" />
+
+                        <Label Grid.Column="0" Grid.Row="3" Text="Subregion:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="3" Text="{Binding Country.Subregion}" />
+
+                        <Label Grid.Column="0" Grid.Row="4" Text="Demonym:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="4" Text="{Binding Country.Demonym}" />
+
+                        <Label Grid.Column="0" Grid.Row="5" Text="Gini:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="5" Text="{Binding Country.Gini}" />
+
+                        <Label Grid.Column="0" Grid.Row="6" Text="Native Name:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="6" Text="{Binding Country.NativeName}" />
+
+                        <Label Grid.Column="0" Grid.Row="7" Text="Numeric Code:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="7" Text="{Binding Country.NumericCode}" />
+
+                        <Label Grid.Column="0" Grid.Row="8" Text="Cioc:" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Grid.Row="8" Text="{Binding Country.Cioc}" />
+                    </Grid>
+                </Frame>
+                <!--<Frame Grid.Row="4">
+                    <StackLayout>
+                        <Label Text="Top Level Domains:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.TopLevelDomain}" SelectionMode="None" />
                     </StackLayout>
-                    <StackLayout Grid.Column="1">
-                        <Label Text="{Binding Country.Population}" HorizontalTextAlignment="Center" />
-                        <Label Text="Population" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                </Frame>
+                <Frame Grid.Row="5">
+                    <StackLayout>
+                        <Label Text="CallingCodes:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.CallingCodes}" SelectionMode="None" />
                     </StackLayout>
-                    <StackLayout Grid.Column="2">
-                        <Label Text="{Binding Country.Area}" HorizontalTextAlignment="Center" />
-                        <Label Text="Area" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                </Frame>
+                <Frame Grid.Row="6">
+                    <StackLayout>
+                        <Label Text="Spellings:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.AltSpellings}" SelectionMode="None" />
                     </StackLayout>
-                </Grid>
-            </Frame>
-        </Grid>
-    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="7">
+                    <StackLayout>
+                        <Label Text="Latitude and length:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.Latlng}" SelectionMode="None" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="8">
+                    <StackLayout>
+                        <Label Text="Timezones:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.Timezones}" SelectionMode="None" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="9">
+                    <StackLayout>
+                        <Label Text="Borders:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.Borders}" SelectionMode="None" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="10">
+                    <StackLayout>
+                        <Label Text="Currencies:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.Currencies}" SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="Code:" FontAttributes="Bold" />
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Code}" />
+
+                                            <Label Grid.Row="1" Grid.Column="0" Text="Name:" FontAttributes="Bold" />
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Name}" />
+
+                                            <Label Grid.Row="2" Grid.Column="0" Text="Symbol:" FontAttributes="Bold" />
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Symbol}" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="11">
+                    <StackLayout>
+                        <Label Text="Languages:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.Languages}" SelectionMode="None" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="12">
+                    <StackLayout>
+                        <Label Text="Regional Blocs:" FontAttributes="Bold"/>
+                        <ListView ItemsSource="{Binding Country.RegionalBlocs}" SelectionMode="None" />
+                    </StackLayout>
+                </Frame>-->
+                <Frame Grid.Row="13">
+                    <StackLayout>
+                        <Label Text="Translations:" FontAttributes="Bold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Text="DE:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Country.Translations.De}" />
+
+                            <Label Grid.Column="0" Grid.Row="1" Text="ES:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Country.Translations.Es}" />
+
+                            <Label Grid.Column="0" Grid.Row="2" Text="FR:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding Country.Translations.Fr}" />
+
+                            <Label Grid.Column="0" Grid.Row="3" Text="JA:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="3" Text="{Binding Country.Translations.Ja}" />
+
+                            <Label Grid.Column="0" Grid.Row="4" Text="IT:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="4" Text="{Binding Country.Translations.It}" />
+
+                            <Label Grid.Column="0" Grid.Row="5" Text="BR:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="5" Text="{Binding Country.Translations.Br}" />
+
+                            <Label Grid.Column="0" Grid.Row="6" Text="PT:" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Grid.Row="6" Text="{Binding Country.Translations.Pt}" />
+
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

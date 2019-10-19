@@ -1,4 +1,5 @@
-﻿using Encountry.Common.Models;
+﻿using Encountry.Common.Helpers;
+using Encountry.Common.Models;
 using Encountry.Common.Services;
 using Newtonsoft.Json;
 using Prism.Navigation;
@@ -50,7 +51,14 @@ namespace Encountry.Prism.ViewModels
             if (!connection)
             {
                 Loading = false;
-                await App.Current.MainPage.DisplayAlert("Error", "Check the internet connection.", "Accept");
+
+                var persistenceCountries = JsonConvert.DeserializeObject<ObservableCollection<CountryItemViewModel>>(Settings.Countries);
+
+                if(Settings.Countries != "countries" && persistenceCountries?.Count > 0)
+                {
+                    Countries = persistenceCountries;
+                }
+
                 return;
             }
 
@@ -59,11 +67,13 @@ namespace Encountry.Prism.ViewModels
             if (!response.IsSuccess)
             {
                 Loading = false;
-                await App.Current.MainPage.DisplayAlert("Error", "Problem data loading, call support.", "Accept");
+                await App.Current.MainPage.DisplayAlert("Error", "Problem loading countries data, call support.", "Accept");
                 return;
-            }  
+            }
 
-            Countries = new ObservableCollection<CountryItemViewModel>(response.Result.Select(r => new CountryItemViewModel(_navigationService) {
+            Settings.Countries = JsonConvert.SerializeObject(response.Result);
+
+            Countries = new ObservableCollection<CountryItemViewModel>(response.Result.Select(r => new CountryItemViewModel(_navigationService, _apiService) {
                 Alpha2Code = r.Alpha2Code,
                 Alpha3Code = r.Alpha3Code,
                 AltSpellings = r.AltSpellings,

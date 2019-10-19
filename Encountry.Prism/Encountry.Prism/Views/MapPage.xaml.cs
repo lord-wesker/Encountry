@@ -15,7 +15,11 @@ namespace Encountry.Prism.Views
 
         private void ShowCountryOnMap()
         {
-            var position = new Position(Settings.Latitude, Settings.Length);
+            var lat = Settings.DoubleFormat(Settings.Latitude);
+            var len = Settings.DoubleFormat(Settings.Length);
+            var area = Settings.DoubleFormat(Settings.CountryArea);
+
+            var position = new Position(lat, len);
 
             EncountryMap.Pins.Add(new Pin()
             {
@@ -25,7 +29,7 @@ namespace Encountry.Prism.Views
 
             EncountryMap.MoveToRegion(MapSpan.FromCenterAndRadius(
                     position,
-                    Distance.FromKilometers(Math.Sqrt(Settings.CountryArea))));
+                    Distance.FromKilometers(Math.Sqrt(area))));
         }
     }
 }

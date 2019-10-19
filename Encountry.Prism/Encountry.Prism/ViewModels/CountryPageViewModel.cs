@@ -1,10 +1,5 @@
 ﻿using Encountry.Common.Models;
-using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Encountry.Prism.ViewModels
 {
@@ -20,7 +15,8 @@ namespace Encountry.Prism.ViewModels
             Title = "COUNTRY";
         }
 
-        public CountryResponse Country {
+        public CountryResponse Country
+        {
             get => _country;
             set => SetProperty(ref _country, value);
         }
@@ -29,7 +25,7 @@ namespace Encountry.Prism.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            if(parameters.ContainsKey("country"))
+            if (parameters.ContainsKey("country"))
             {
                 Country = parameters.GetValue<CountryResponse>("country");
                 Title = Country.Name;
